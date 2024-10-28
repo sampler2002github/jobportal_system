@@ -1,13 +1,11 @@
-import React from 'react'
-import { Link } from 'react-router-dom' 
-
-function JobSeeker() {
-  return (
-    <>
-    
+ import React from 'react' 
+ 
+ function JobSeeker() {
+   return (     
+     <>
       
-    </>
-  )
-}
-
-export default JobSeeker
+     </>
+   )
+ }
+ 
+ export default JobSeeker

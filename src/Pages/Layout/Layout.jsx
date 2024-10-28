@@ -12,10 +12,10 @@ function Layout() {
          <Link className="nav-link" aria-current="page" to="#">Home</Link>
        </li>
        <li className="nav-item mx-2">
-         <Link className="nav-link" to="/jobseeker">Job Seeker</Link>
+         <Link className="nav-link" to="/jobseekerlayout">Job Seeker</Link>
        </li>
        <li className="nav-item mx-2">
-         <Link className="nav-link" to="/company">New Company</Link>
+         <Link className="nav-link" to="/newcompanylayout">New Company</Link>
        </li>
        <li className="nav-item mx-2">
          <Link className="nav-link" to="/feedback">FeedBack</Link>

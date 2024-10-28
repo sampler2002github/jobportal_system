@@ -1,9 +1,40 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
 
-function JobSeekerLayout() {
+import React, { useState } from 'react' 
+import MyAccount from './MyAccount'
+import JobMatches from './JobMatches';
+import ProfileMatches from './ProfileMatches';
+import AppliedJob from './AppliedJob';
+import JSChangePassword from './JSChangePassword';
+import JSMyMessage from './JSMyMessage';
+import JSMySent from './JSMySent';
+import JsMyInbox from './JsMyInbox';
+
+const JobSeekerLayout=()=> {
+  const [activeKey,setActiveKey]=useState("");
+
+  const renderComponents=()=>{
+    switch(activeKey){
+      case "jobseekeraccount":
+        return <MyAccount/>
+        case "jobmatches":
+          return <JobMatches/>
+          case "profilematches":
+            return <ProfileMatches/>
+            case "appliedjob":
+              return <AppliedJob/>
+              case "jschnagepassword":
+                return <JSChangePassword/>
+                case "jsmymessage":
+                  return <JSMyMessage/>
+                  case "jsmyinbox":
+                    return <JsMyInbox/>
+                  case "jsmysent":
+                    return <JSMySent/>
+    }
+  }
+
   return (
-    <div className='container border mt-2'> 
+    <div className='container border mt-2 vh-auto'> 
     <div className='row p-2'>
     <div className='col-3'>
       <div className='row border'>
@@ -17,21 +48,21 @@ function JobSeekerLayout() {
          <input type='file' />
         </div>
       </div>
-      <div className='row border mt-2'>
-        <div className='form-group text-center border mt-1'> 
-               <Link to='/jobseekeraccount'>My Account</Link> 
+      <div className='row border mt-2 vh-auto'>
+        <div className='form-group text-center border mt-1'>  
+               <a href='#' onClick={()=>setActiveKey("jobseekeraccount")}>My Account</a> 
          </div> 
          <div className='form-group text-center border mt-1'> 
-                 <Link to='/to'>Job Matches</Link> 
+                 <a href='#' onClick={()=>setActiveKey("jobmatches")}>Job Matches</a> 
          </div> 
          <div className='form-group text-center border mt-1'> 
-                 <Link to='/to'>Profile Matches</Link> 
+                 <a href='#' onClick={()=>setActiveKey("profilematches")}>Profile Matches</a> 
          </div> 
          <div className='form-group text-center border mt-1'> 
-                 <Link to='/to'>Applied Job</Link> 
+                 <a href='#' onClick={()=>setActiveKey("appliedjob")}>Applied Job</a> 
          </div>  
          <div className='form-group text-center border mt-1 mb-1'> 
-                 <Link to='/to'>Change Password</Link> 
+                 <a href='#' onClick={()=>setActiveKey("jschnagepassword")}>Change Password</a> 
          </div> 
       </div>
      </div>
@@ -39,7 +70,7 @@ function JobSeekerLayout() {
 
      <div className='col-6'>
        <div className='container border'>
-        <div className='text-center mb-2 border'>
+        <div className='row text-center mb-2 border' style={{backgroundColor:"lightGray"}}>
           <h5>Find Job here within a second!!</h5>
          </div>
          <div className='row'>
@@ -71,25 +102,26 @@ function JobSeekerLayout() {
          <button type='submit' className='btn btn-success'>Search</button>  
          </div>
          </div>
-         <div className='row border text-center' style={{height:'250px'}}> 
-               
-               
+
+         <div className='row border'> 
+               {renderComponents()}               
          </div>
+
        </div>
      </div>
      <div className='col-3'>
      <div className='row border mt-2'>
         <div className='form-group text-center border mt-1'> 
-                 <Link to='/'>Log Out</Link> 
+                 <a href='/'>Log Out</a> 
          </div> 
          <div className='form-group text-center border mt-1'> 
-                 <Link to='/to'>My Message</Link> 
+                 <a href='#' onClick={()=>setActiveKey("jsmymessage")}>My Message</a> 
          </div> 
          <div className='form-group text-center border mt-1'> 
-                 <Link to='/to'>My Inbox</Link> 
+                 <a href='#' onClick={()=>setActiveKey("jsmyinbox")}>My Inbox</a> 
          </div> 
          <div className='form-group text-center border mt-1 mb-1'> 
-                 <Link to='/to'>My Sent</Link> 
+                 <a href='#' onClick={()=>setActiveKey("jsmysent")}>My Sent</a> 
          </div>   
       </div>
      </div>
