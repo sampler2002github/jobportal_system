@@ -32,8 +32,11 @@ const AdminLayout=()=> {
                         return <NCMyInbox/>
                         case "ncmysent":
                                 return <NCMySent/>
+                                default:
+        return null;
         }
-      }
+      };
+
         return (
     <div className='container border mt-2'>  
     <div className='row p-2'>
@@ -64,7 +67,7 @@ const AdminLayout=()=> {
                  <a href='#' onClick={()=>setActiveKey("ncchangepassword")}>Change Password</a> 
          </div> 
          <div className='form-group text-center border mt-1 mb-1'> 
-                 <a href='/to'>Log Out</a> 
+                 <a href='/'>Log Out</a> 
          </div>
       </div>
      </div>
@@ -76,17 +79,18 @@ const AdminLayout=()=> {
           <h5>Find Job here within a second!!</h5>
          </div>
          <div className='row'>
-         <div className='col-1'>
+         <div className='col-2'>
            <label htmlFor='name' className='form-label'>Name:</label> 
          </div>
          <div className='col-4'>  
-          <input type='text' className='form-control'/> 
+          <input type='text' style={{width:'100%',fontSize:'15px'}} autoComplete='of'/> 
          </div> 
          <div className='col-1'>
          <label htmlFor='skill' className='form-label'>Skill:</label>
            </div> 
            <div className='col-4'>  
-          <select className='form-control'>
+          <select style={{width:'100%',fontSize:'15px'}}>
+          <option>-Select Skill-</option>
            <option>ASP.Net</option>
            <option>VB .Net</option>
            <option>Java</option>
@@ -98,9 +102,9 @@ const AdminLayout=()=> {
          <div className='col-3'>
            <label htmlFor='qualification' className='form-label'>Qualification:</label> 
          </div>
-         <div className='col-4'>  
-          <select className='form-control'>
-           <option>Select</option>
+         <div className='col-5'>  
+          <select style={{width:'100%',fontSize:'15px'}}>
+           <option>-Select Qualification-</option>
            <option>12 Pass</option>
            <option>Graduate</option>
            <option>Diploma</option>
@@ -110,11 +114,12 @@ const AdminLayout=()=> {
            </select> 
          </div> 
          <div className='col-2'>
-         <button type='submit' className='btn btn-success'>Search</button>  
+         <button type='submit' className='btn btn-success btn-sm'>Search</button>  
          </div>
          </div>
          <div className='row border vh-auto'> 
-         {renderComponents()}                  
+         {renderComponents()}  
+                         
          </div>
        </div>
      </div>

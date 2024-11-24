@@ -30,6 +30,7 @@ const JobSeekerLayout=()=> {
                     return <JsMyInbox/>
                   case "jsmysent":
                     return <JSMySent/>
+                  
     }
   }
 
@@ -54,10 +55,7 @@ const JobSeekerLayout=()=> {
          </div> 
          <div className='form-group text-center border mt-1'> 
                  <a href='#' onClick={()=>setActiveKey("jobmatches")}>Job Matches</a> 
-         </div> 
-         <div className='form-group text-center border mt-1'> 
-                 <a href='#' onClick={()=>setActiveKey("profilematches")}>Profile Matches</a> 
-         </div> 
+         </div>  
          <div className='form-group text-center border mt-1'> 
                  <a href='#' onClick={()=>setActiveKey("appliedjob")}>Applied Job</a> 
          </div>  
@@ -74,18 +72,22 @@ const JobSeekerLayout=()=> {
           <h5>Find Job here within a second!!</h5>
          </div>
          <div className='row'>
-         <div className='col-1'>
+         <div className='col-2'>
            <label htmlFor='name' className='form-label'>Name:</label> 
          </div>
          <div className='col-4'>  
-          <input type='text' className='form-control'/> 
+          <input type='text'  style={{width:'100%',fontSize:'12px'}} autoComplete='of'/> 
          </div> 
          <div className='col-1'>
          <label htmlFor='skill' className='form-label'>Skill:</label>
            </div> 
            <div className='col-4'>  
-          <select className='form-control'>
+           <select style={{width:'100%',fontSize:'12px'}}>
+          <option>Select</option>
            <option>ASP.Net</option>
+           <option>VB .Net</option>
+           <option>Java</option>
+           <option>PHP</option>
            </select> 
          </div> 
          </div>
@@ -94,17 +96,23 @@ const JobSeekerLayout=()=> {
            <label htmlFor='qualification' className='form-label'>Qualification:</label> 
          </div>
          <div className='col-4'>  
-          <select className='form-control'>
-           <option>MBA</option>
+         <select style={{width:'100%',fontSize:'15px'}}>
+           <option>Select</option>
+           <option>12 Pass</option>
+           <option>Graduate</option>
+           <option>Diploma</option>
+           <option>Degree</option>
+           <option>Masters</option>
+           <option>PHD</option>
            </select> 
          </div> 
          <div className='col-2'>
-         <button type='submit' className='btn btn-success'>Search</button>  
+         <button type='submit' className='btn btn-success btn-sm'>Search</button>  
          </div>
          </div>
 
          <div className='row border'> 
-               {renderComponents()}               
+               {renderComponents()}   
          </div>
 
        </div>

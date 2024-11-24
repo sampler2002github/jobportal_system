@@ -28,7 +28,8 @@ import JSChangePassword from './Pages/JobSeekerLayoyt/JSChangePassword';
 import AppliedJob from './Pages/JobSeekerLayoyt/AppliedJob';
 import JSMyMessage from './Pages/JobSeekerLayoyt/JSMyMessage';
 import JsMyInbox from './Pages/JobSeekerLayoyt/JsMyInbox';
-import JSMySent from './Pages/JobSeekerLayoyt/JSMySent';
+import JSMySent from './Pages/JobSeekerLayoyt/JSMySent';  
+import Admin from './Pages/Layout/Admin';
 
 function App() {
   return (
@@ -48,8 +49,8 @@ function App() {
       <Route path='contactus' element={<ContactUs/>}/> 
       <Route path='feedback' element={<FeedBack/>}/>
       <Route path='jobseeker' element={<JobSeeker/>}/>
-      <Route path='register' element={<Register/>}/>
-      <Route path='login' element={<Login/>}/>
+      <Route path='register' element={<Register/>}/> 
+      <Route path='login' element={<Login/>}/> 
       </Route>
 
        <Route path='/jobseekerlayout' element={<JobSeekerLayout/>}>
@@ -60,12 +61,13 @@ function App() {
        <Route path='jschnagepassword' element={<JSChangePassword/>}/>
        <Route path='jsmymessage' element={<JSMyMessage/>}/>
        <Route path='jsmyinbox' element={<JsMyInbox/>}/>
-       <Route path='jsmysent' element={<JSMySent/>}/>
+       <Route path='jsmysent' element={<JSMySent/>}/> 
        </Route>
        
 
         
-       <Route path='/adminlayout' element={<AdminLayout/>}>         
+       <Route path='/adminlayout' element={<AdminLayout/>}>    
+       <Route path='admin' element={<Admin/>} />
        </Route>
 
        <Route path='/newcompanylayout' element={<NewCompanyLayout/>}>

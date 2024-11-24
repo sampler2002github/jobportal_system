@@ -24,6 +24,10 @@ const ContactUs=()=> {
         const result=await response.json();
         alert("Added Person details Successfully!!");
         console.log(result);
+        setName('');
+        setMobile('');
+        setEmail('');
+        setMessage('');
       } else {
         const errorData=await response.json();
         alert(errorData ,"Failed to Contact details!"); 
@@ -49,7 +53,7 @@ const ContactUs=()=> {
                 <label htmlFor='name' className='form-label'>Name:</label>
                 </div>
                 <div className='col-9'>
-                <input type='text' className='form-control' placeholder='Enter Name' value={name} onChange={(e)=>setName(e.target.value)} autoComplete='of'/>
+                <input type='text' className='form-control' placeholder='Enter Your Name' value={name} onChange={(e)=>setName(e.target.value)} autoComplete='of'/>
                 </div>
               </div>
               <div className='row mb-2'>
@@ -57,7 +61,7 @@ const ContactUs=()=> {
                 <label htmlFor='email' className='form-label'>Email:</label>
                 </div>
                 <div className='col-9'>
-                <input type='text' className='form-control' value={email} onChange={(e)=>setEmail(e.target.value)}/>
+                <input type='text' className='form-control' placeholder='Enter Your Email' value={email} onChange={(e)=>setEmail(e.target.value)}/>
                 </div>
               </div>
               <div className='row mb-2'>
@@ -67,7 +71,7 @@ const ContactUs=()=> {
                 </label>
                </div>
                 <div className='col-9'>
-                <input type='text' className='form-control' value={mobile} onChange={(e)=>setMobile(e.target.value)} maxLength={10}/>
+                <input type='text' className='form-control' placeholder='Enter Your Mobile' value={mobile} onChange={(e)=>setMobile(e.target.value)} maxLength={10}/>
                 </div>
               </div> 
               <div className='row mb-2'>
@@ -75,7 +79,7 @@ const ContactUs=()=> {
                <label htmlFor='message' className='form-label'>Message:</label>
                </div>
                <div className='col-9'>
-               <textarea type='message' className='form-control' value={message} onChange={(e)=>setMessage(e.target.value)}/> 
+               <textarea type='message' className='form-control' placeholder='Enter Your Message' value={message} onChange={(e)=>setMessage(e.target.value)}/> 
                </div>
               </div> 
                 

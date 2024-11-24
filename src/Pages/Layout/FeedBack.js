@@ -5,10 +5,46 @@ const FeedBack=()=> {
   const [mobile, setMobile]=useState("");
   const [email, setEmail]=useState("");
   const [feedBack,setFeedback]=useState("");
+  const [formErrors, setFormErrors] = useState({});
+
+  const validateForm = () => {
+    let errors = {};
+    let isValid = true;
+
+    // Name validation
+    if (!name) {
+      errors.name = 'Please enter your name';
+      isValid = false;
+    } else if (name.length < 5) {
+      errors.name = 'Name must be at least 5 characters';
+      isValid = false;
+    } 
+    // Mobile validation
+    if (!mobile) {
+      errors.mobile = 'Mobile is required';
+      isValid = false;
+    } else if (mobile.length < 10) {
+      errors.mobile = 'Mobile number must be 10 digits';
+      isValid = false;
+    }  
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email) {
+      errors.email = 'Email is required';
+      isValid = false;
+    } else if (!emailPattern.test(email)) {
+      errors.email = 'Enter a valid email';
+      isValid = false;
+    }
+    
+    setFormErrors(errors);
+    return isValid;
+  };
 
   const handelSubmit=async(e)=>{
     e.preventDefault();
-
+    if (!validateForm()) {
+      return;
+    }
     const feedBackdetails={
       name,mobile,email,feedBack
     };
@@ -24,6 +60,10 @@ const FeedBack=()=> {
         const result=await response.json();
         alert("Feedback Send Successfully!!");
         console.log(result);
+        setName('');
+        setMobile('');
+        setEmail('');
+        setFeedback('');
        }else{
         const errorData=await response.json();
         alert(errorData,"Failed to Send Feedback!!");
@@ -50,7 +90,8 @@ const FeedBack=()=> {
                 <label htmlFor='name' className='form-label'>Name:</label>
                 </div>
                 <div className='col-9'>
-                <input type='text' className='form-control' value={name} onChange={(e)=>setName(e.target.value)}/>
+                <input type='text' className='form-control' placeholder='Enter Your Name' value={name} onChange={(e)=>setName(e.target.value)}/>
+                {formErrors.name && <div className='text-danger'>{formErrors.name}</div>}
                 </div>
               </div>
               <div className='row mb-2'>
@@ -58,7 +99,8 @@ const FeedBack=()=> {
                <label htmlFor='mobile' className='form-label'>Mobile:</label>
                </div>
                 <div className='col-9'>
-                <input type='text' className='form-control' value={mobile} onChange={(e)=>setMobile(e.target.value)} maxLength={10} />
+                <input type='text' className='form-control' placeholder='Enter Your Mobile' value={mobile} onChange={(e)=>setMobile(e.target.value)} maxLength={10} />
+                {formErrors.mobile && <div className='text-danger'>{formErrors.mobile}</div>}
                 </div>
               </div>
               <div className='row mb-2'>
@@ -66,7 +108,8 @@ const FeedBack=()=> {
                <label htmlFor='email' className='form-label'>Email:</label>
                </div>
                 <div className='col-9'>
-                <input type='email' className='form-control' value={email} onChange={(e)=>setEmail(e.target.value)}/>
+                <input type='email' className='form-control' placeholder='Enter Your Email' value={email} onChange={(e)=>setEmail(e.target.value)}/>
+                {formErrors.email && <div className='text-danger'>{formErrors.email}</div>}
                 </div>
               </div>
               <div className='row mb-2'>
@@ -74,7 +117,8 @@ const FeedBack=()=> {
                <label htmlFor='feedback' className='form-label'>FeedBack:</label>
                </div>
                <div className='col-9'>
-               <textarea type='text' className='form-control' value={feedBack} onChange={(e)=>setFeedback(e.target.value)}/> 
+               <textarea type='text' className='form-control' placeholder='Enter Your FeedBack' value={feedBack} onChange={(e)=>setFeedback(e.target.value)}/> 
+                
                </div>
               </div> 
                 

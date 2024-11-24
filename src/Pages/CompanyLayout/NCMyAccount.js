@@ -31,6 +31,15 @@ const NCMyAccount=()=> {
             const result=await response.json();
             alert("Added Account Successfully!!");
             console.log(result);
+            setCompanyName('');
+            setAddress('');
+            setEmail('');
+            setCity('');
+            setContactPerson('');
+            setMobile('');
+            setDetail('');
+            setPincode('');
+            setType('');
           } else {
             const errorData=await response.json();
             alert(errorData ,"Failed to Upload details!"); 
@@ -131,7 +140,7 @@ const NCMyAccount=()=> {
          <textarea type='text' className='form-control' placeholder='Enter Detail' value={detail} onChange={(e)=>setDetail(e.target.value)} autoComplete='of'/>
           </div>
        </div>
-        <center><button type='submit' className='btn btn-success mt-2 mb-2 btn-sm'>Add Details</button></center>
+        <center><button type='submit' className='btn btn-success mt-2 mb-2 btn-sm'>Register</button></center>
         </form> 
     </div> 
     </>

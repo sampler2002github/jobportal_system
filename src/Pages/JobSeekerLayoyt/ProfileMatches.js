@@ -2,9 +2,7 @@ import React from 'react'
 
 function ProfileMatches() {
   return (
-    <>
-    <div>Profile Matches</div>
-    </>
+    <div>ProfileMatches</div>
   )
 }
 

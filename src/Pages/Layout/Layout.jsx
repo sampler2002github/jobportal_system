@@ -1,7 +1,10 @@
 import React from 'react'
 import { Link, Outlet } from 'react-router-dom'
+import LoginPopUp from './LoginPopUp'
+import RegisterPopUp from './RegisterPopUp'
  
-function Layout() {
+const Layout=()=> {
+  
   return (
      <> 
      <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -13,7 +16,7 @@ function Layout() {
        </li>
        <li className="nav-item mx-2">
          <Link className="nav-link" to="/jobseekerlayout">Job Seeker</Link>
-       </li>
+       </li> 
        <li className="nav-item mx-2">
          <Link className="nav-link" to="/newcompanylayout">New Company</Link>
        </li>
@@ -26,15 +29,23 @@ function Layout() {
      </ul>
      <ul className='navbar-nav ms-auto'>
       <li className="nav-item mx-2">
-          <Link className="nav-link" to="/">Login</Link>
+          <Link className="nav-link" to="/login" data-bs-toggle="modal" data-bs-target="#exampleModallogin" data-bs-whatever="@mdo" >Login</Link> 
         </li> 
-        <li className="nav-item mx-2">
-          <Link className="nav-link" to="/register">Register</Link>
-        </li> 
+        {/* <li className="nav-item mx-2" > 
+          <Link className="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModallogin" data-bs-whatever="@mdo">Login2</Link>
+        </li> */}
+        <li className="nav-item mx-2"> 
+          <Link className="nav-link" to="/register" data-bs-toggle="modal" data-bs-target="#exampleModal">Register</Link>
+        </li>  
+        {/* <li className="nav-item mx-2" > 
+          <Link className="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Register2</Link>
+        </li> */}
       </ul>
    </div>
  </div>
-</nav>
+</nav> 
+<LoginPopUp/>
+<RegisterPopUp/>
 <Outlet/>
      </>
   )
